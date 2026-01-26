@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITER | Das größte IT & Energie Experiment der Welt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --plasma-glow: #5d00ff;
+            --fusion-orange: #ff7b00;
+        }
+
+        body {
+            background-color: #050505;
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-tech {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .plasma-bg {
+            background: radial-gradient(circle at center, rgba(93, 0, 255, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--plasma-glow);
+            box-shadow: 0 0 20px rgba(93, 0, 255, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #fff, var(--plasma-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .plasma-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--plasma-glow) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: pulse 4s infinite alternate;
+            position: absolute;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--plasma-glow);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* Simulierter Plasma-Reaktor Effekt */
+        .reaktor-core {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 2px solid rgba(255,255,255,0.05);
+            border-radius: 50%;
+            width: 400px;
+            margin: auto;
+        }
+
+        .plasma-stream {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border: 4px solid var(--plasma-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--plasma-glow), inset 0 0 30px var(--plasma-glow);
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="plasma-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 py-6 px-8 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-tr from-purple-600 to-blue-400 rounded-lg flex items-center justify-center">
+                <i class="fas fa-atom text-white"></i>
+            </div>
+            <span class="font-tech text-xl tracking-widest font-bold">ITER</span>
+        </div>
+        <div class="hidden md:flex gap-8">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#vision" class="nav-link">Vision</a>
+            <a href="#it" class="nav-link">IT & KI</a>
+            <a href="#physics" class="nav-link">Physik</a>
+        </div>
+        <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg shadow-purple-900/20">
+            Live Status
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-32 px-8 flex flex-col items-center justify-center text-center">
+        <div class="plasma-circle"></div>
+        <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tighter">
+            DIE ZÄHMUNG <br> <span class="gradient-text">DER SONNE</span>
+        </h1>
+        <p class="max-w-2xl text-gray-400 text-lg md:text-xl mb-10 leading-relaxed">
+            ITER ist das ehrgeizigste Energieprojekt der Geschichte. Wir bauen einen Tokamak-Reaktor, der die Kernfusion auf die Erde bringt – die Energiequelle der Sterne.
+        </p>
+        
+        <div class="reaktor-core mb-20">
+            <div class="plasma-stream"></div>
+            <div class="text-center z-10">
+                <p class="font-tech text-xs text-purple-400 mb-1 uppercase tracking-widest">Plasma Temperatur</p>
+                <p class="text-4xl font-bold">150M °C</p>
+                <p class="text-xs text-gray-500 mt-2">Status: Stabilisierend</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-24 px-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6 font-tech text-purple-400">Das Versprechen</h2>
+                <p class="text-gray-300 mb-6 leading-loose">
+                    Stellen Sie sich eine Welt vor, in der Energie nahezu unerschöpflich, sauber und sicher ist. Kernfusion produziert keinen langlebigen Atommüll und ist im Gegensatz zur Kernspaltung keine Kettenreaktion, die außer Kontrolle geraten kann.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-4">
+                        <i class="fas fa-leaf text-green-400 mb-2"></i>
+                        <h4 class="font-bold">CO2 Frei</h4>
+                    </div>
+                    <div class="glass-card p-4">
+                        <i class="fas fa-infinity text-blue-400 mb-2"></i>
+                        <h4 class="font-bold">Unendlich</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card p-8 h-full flex flex-col justify-center">
+                <div class="text-6xl text-purple-500 mb-4 font-bold">35</div>
+                <p class="text-xl font-semibold mb-2">Nationen arbeiten zusammen</p>
+                <p class="text-gray-500">Ein historisches Projekt zwischen EU, China, Indien, Japan, Korea, Russland und den USA.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IT & AI Section -->
+    <section id="it" class="py-24 bg-white/5 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4 font-tech">Die Digitale Intelligenz</h2>
+            <p class="text-gray-400 mb-16">Ohne Supercomputing und KI wäre ITER unmöglich.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="glass-card p-8">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Plasma KI Control</h3>
+                    <p class="text-gray-400 text-sm">Neuronale Netze berechnen in Millisekunden die Magnetfelder neu, um Instabilitäten des Plasmas zu verhindern.</p>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Big Data</h3>
+                    <p class="text-gray-400 text-sm">Mehr als 30.000 Sensoren erzeugen Terabytes an Daten pro Sekunde, die in Echtzeit verarbeitet werden müssen.</p>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-project-diagram text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Digital Twin</h3>
+                    <p class="text-gray-400 text-sm">Jede Komponente des ITER wird virtuell simuliert, bevor sie in der physischen Welt montiert wird.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Physics Section -->
+    <section id="physics" class="py-24 px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center font-tech">Das Prinzip der Fusion</h2>
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1">
+                <div class="glass-card p-8 border-l-4 border-orange-500">
+                    <p class="italic text-xl mb-4">
+                        "Zwei Atome verschmelzen zu einem, und die dabei freiwerdende Bindungsenergie wird zur Hitze, die wir nutzen."
+                    </p>
+                    <p class="text-orange-500 font-bold">$$\text{D} + \text{T} \rightarrow ^4\text{He} + \text{n} + 17.6 \text{ MeV}$$</p>
+                </div>
+            </div>
+            <div class="flex-1 space-y-6">
+                <p class="text-gray-300">
+                    Bei extremen Temperaturen bewegen sich Wasserstoff-Isotope so schnell, dass sie die elektrostatische Abstoßung überwinden. In einem Tokamak werden sie durch gewaltige Magnetfelder schwebend gehalten, ohne die Wände zu berühren.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-purple-500"></i>
+                        <span>10x mehr Energie raus als rein (Q=10)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-purple-500"></i>
+                        <span>Magnetfelder stärker als die der Erde</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-sm">
+        <p>© 2026 ITER Creative Project - Konzipiert für die Zukunft.</p>
+        <p class="mt-2">Technologie: React, Tailwind, KI Video-Generierung</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling für Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simulierter "Live Daten" Update
+        setInterval(() => {
+            const temp = (149.5 + Math.random()).toFixed(1);
+            const display = document.querySelector('.reaktor-core p.text-4xl');
+            if(display) display.innerText = temp + "M °C";
+        }, 2000);
+    </script>
+</body>
+</html>
