@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,17 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
+
         .section {
             display: none;
             padding: 100px 20px;
             min-height: 90vh;
         }
+
         .active {
             display: block;
         }
+
         .nav-link {
             cursor: pointer;
             transition: color 0.3s;
@@ -27,35 +31,42 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         .nav-link:hover {
             color: #3b82f6;
         }
+
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
         }
+
         .gradient-text {
             background: linear-gradient(to right, #3b82f6, #60a5fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .source-card {
             display: block;
             text-decoration: none;
             transition: all 0.3s ease;
         }
+
         .source-card:hover {
             background: rgba(59, 130, 246, 0.1);
             border-color: rgba(59, 130, 246, 0.5);
             transform: translateY(-2px);
         }
+
         #timer-container {
             font-family: 'Courier New', Courier, monospace;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigationsleiste -->
@@ -75,8 +86,9 @@
     <!-- Startseite mit Live-Timer -->
     <section id="home" class="section active flex flex-col items-center justify-center text-center">
         <h1 class="text-8xl md:text-9xl font-black mb-4">ITER</h1>
-        <p class="text-xl md:text-3xl font-light text-gray-400 tracking-[0.3em] uppercase mb-8">Die Zukunft der Energie</p>
-        
+        <p class="text-xl md:text-3xl font-light text-gray-400 tracking-[0.3em] uppercase mb-8">Die Zukunft der Energie
+        </p>
+
         <!-- Live Projekt Timer -->
         <div id="timer-container" class="glass p-6 md:p-8 max-w-2xl">
             <p class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">Zeit seit Baubeginn (2007)</p>
@@ -86,7 +98,10 @@
         </div>
 
         <div class="mt-12 animate-bounce cursor-pointer" onclick="showSection('was-ist')">
-            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
         </div>
     </section>
 
@@ -94,19 +109,22 @@
     <section id="was-ist" class="section">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 gradient-text">
-                ITER, dass im Lateinischen "der Weg" bedeutet, wird das weltweit größte Experiment auf dem Weg zur Fusionsenergie sein.
+                ITER, dass im Lateinischen "der Weg" bedeutet, wird das weltweit größte Experiment auf dem Weg zur
+                Fusionsenergie sein.
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="glass p-8">
                     <h3 class="text-blue-400 font-bold mb-4 uppercase text-sm">Globale Allianz</h3>
                     <p class="leading-relaxed">
-                        35 Nationen arbeiten an diesem gigantischem Projekt darunter China, Europa, Japan, Indien, die Republik Korea, die Russische Föderation und die USA. Kanada ist seit 2004 nicht mehr dabei.
+                        35 Nationen arbeiten an diesem gigantischem Projekt darunter China, Europa, Japan, Indien, die
+                        Republik Korea, die Russische Föderation und die USA. Kanada ist seit 2004 nicht mehr dabei.
                     </p>
                 </div>
                 <div class="glass p-8">
                     <h3 class="text-blue-400 font-bold mb-4 uppercase text-sm">Standort</h3>
                     <p class="leading-relaxed">
-                        Dennoch ist Europa der Gastgeber des Projekts, das derzeit in Cadarache, im Süden Frankreichs, gebaut wird.
+                        Dennoch ist Europa der Gastgeber des Projekts, das derzeit in Cadarache, im Süden Frankreichs,
+                        gebaut wird.
                     </p>
                 </div>
             </div>
@@ -118,9 +136,12 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center text-white">Das umweltfreundlichste Kraftwerk</h2>
             <div class="glass p-10 space-y-6 text-lg border-l-4 border-l-blue-600">
-                <p>Durch <span class="text-blue-400 font-mono italic">Deuterium und Tritium</span> erzeugt man eine Art Plasma oder einen mini Stern.</p>
-                <p>Magnete sorgen dafür dass das Plasma die wände nicht berührt dann wird es auf <span class="text-blue-400 font-mono">150 Millionen Grad</span> aufgeheizt.</p>
-                <p>Ihre Energie wird als Wärme, die zum Beispiel über Kühltürme abgeleitet werden kann zur Stromerzeugung genutzt werden. Wie auch bei einem herkömlichen Atomkraftwerk.</p>
+                <p>Durch <span class="text-blue-400 font-mono italic">Deuterium und Tritium</span> erzeugt man eine Art
+                    Plasma oder einen mini Stern.</p>
+                <p>Magnete sorgen dafür dass das Plasma die wände nicht berührt dann wird es auf <span
+                        class="text-blue-400 font-mono">150 Millionen Grad</span> aufgeheizt.</p>
+                <p>Ihre Energie wird als Wärme, die zum Beispiel über Kühltürme abgeleitet werden kann zur
+                    Stromerzeugung genutzt werden. Wie auch bei einem herkömlichen Atomkraftwerk.</p>
             </div>
         </div>
     </section>
@@ -133,12 +154,14 @@
                 <div class="glass p-6">
                     <p class="text-blue-400 text-xs font-bold uppercase mb-2">Finanzen</p>
                     <p class="font-semibold text-xl">Wie hoch sind die Kosten?</p>
-                    <p class="text-gray-400 mt-2">Die geschätzten Kosten sind stark angestiegen und liegen im zweistelligen Milliardenbereich.</p>
+                    <p class="text-gray-400 mt-2">Die geschätzten Kosten sind stark angestiegen und liegen im
+                        zweistelligen Milliardenbereich.</p>
                 </div>
                 <div class="glass p-6">
                     <p class="text-blue-400 text-xs font-bold uppercase mb-2">Leistung</p>
                     <p class="font-semibold text-xl">Was ist das Ziel der Anlage?</p>
-                    <p class="text-gray-400 mt-2">Mit Kernfusion einen Energiegewinn von 500 MW bei 50 MW Heizleistung zu erzielen.</p>
+                    <p class="text-gray-400 mt-2">Mit Kernfusion einen Energiegewinn von 500 MW bei 50 MW Heizleistung
+                        zu erzielen.</p>
                 </div>
                 <div class="glass p-6">
                     <p class="text-blue-400 text-xs font-bold uppercase mb-2">Etymologie</p>
@@ -156,51 +179,77 @@
                 <h2 class="text-3xl font-bold mb-8 border-b border-white/10 pb-4">Mein Weg zum Projekt</h2>
                 <div class="glass p-8">
                     <p class="text-lg text-gray-400 leading-relaxed italic">
-                        Zuerst suchte ich informationen zum tema und schrieb einen promt. Google Gemini codete anschliessend mit html meine Webseite, über Github konnte ich die webseite ins internet laden und somit das projekt beenden.
+                        Hey, ich heisse Enrique, bin 14 Jahre alt und beschäftige mich aktiv mit Python im Eigenstudium.
+                        Ausserdem baue ich momentan mein eigenes kleines Smart Home auf und teste aktiv meinen neuen
+                        3D-Drucker. Nebenbei arbeite ich immer wieder an IT-Projekten wie diesem hier.
+
+                        Da ich momentan noch kein HTML programmieren kann, stellte sich dieses Projekt anfangs als
+                        schwieriger heraus als gedacht. Als wir im RZG-Unterricht den Auftrag bekamen, ein Projekt über
+                        Energie zu machen, war mir sofort klar: Ich möchte eine Webseite programmieren.
+
+                        Nach etwas Brainstorming habe ich einen knapp 300 Wörter langen Prompt geschrieben, in dem ich
+                        mein Projekt genau beschrieb. Das Code-Tool von Google (Google AI Studio) hat mir daraufhin das
+                        Grundgerüst meiner Webseite erstellt. Nachdem ich die Farben und das Layout manuell im Code
+                        angepasst habe, lud ich meine Webseite schliesslich über GitHub ins Internet.
                     </p>
                 </div>
             </div>
-            
+
             <h2 class="text-3xl font-bold mb-8 border-b border-white/10 pb-4">Quellen & Ressourcen</h2>
             <div class="grid gap-4">
                 <!-- Quellen-Links mit target="_blank" -->
-                <a href="https://de.wikipedia.org/wiki/ITER#:~:text=Table_title:%20ITER%20Table_content:%20header:%20%7C%20International%20Thermonuclear,Reactor:%20Generaldirektor%20%7C%20:%20Pietro%20Barabaschi%20%7C" target="_blank" class="glass p-6 source-card">
+                <a href="https://de.wikipedia.org/wiki/ITER#:~:text=Table_title:%20ITER%20Table_content:%20header:%20%7C%20International%20Thermonuclear,Reactor:%20Generaldirektor%20%7C%20:%20Pietro%20Barabaschi%20%7C"
+                    target="_blank" class="glass p-6 source-card">
                     <div class="flex justify-between items-center">
                         <div>
                             <span class="text-blue-400 text-xs font-bold uppercase">Wikipedia</span>
                             <h3 class="text-xl font-semibold mt-1">ITER Übersicht & Details</h3>
                         </div>
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
                     </div>
                 </a>
-                
+
                 <a href="https://fusionforenergy.europa.eu/iter/" target="_blank" class="glass p-6 source-card">
                     <div class="flex justify-between items-center">
                         <div>
                             <span class="text-blue-400 text-xs font-bold uppercase">Offiziell</span>
                             <h3 class="text-xl font-semibold mt-1">Fusion for Energy (F4E)</h3>
                         </div>
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
                     </div>
                 </a>
-                
-                <a href="https://stssensors.com/de/wissen/iter-thermonuklearer-versuchsreaktor-kernfusion" target="_blank" class="glass p-6 source-card">
+
+                <a href="https://stssensors.com/de/wissen/iter-thermonuklearer-versuchsreaktor-kernfusion"
+                    target="_blank" class="glass p-6 source-card">
                     <div class="flex justify-between items-center">
                         <div>
                             <span class="text-blue-400 text-xs font-bold uppercase">Wissen</span>
                             <h3 class="text-xl font-semibold mt-1">STS Sensors: Technologie</h3>
                         </div>
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
                     </div>
                 </a>
-                
-                <a href="https://nationalgeographic.de/wissenschaft/2022/12/fusionskraftwerk-iter-der-traum-von-unendlicher-energie-und-seine-realitaet/" target="_blank" class="glass p-6 source-card">
+
+                <a href="https://nationalgeographic.de/wissenschaft/2022/12/fusionskraftwerk-iter-der-traum-von-unendlicher-energie-und-seine-realitaet/"
+                    target="_blank" class="glass p-6 source-card">
                     <div class="flex justify-between items-center">
                         <div>
                             <span class="text-blue-400 text-xs font-bold uppercase">Bericht</span>
                             <h3 class="text-xl font-semibold mt-1">National Geographic Artikel</h3>
                         </div>
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
                     </div>
                 </a>
             </div>
@@ -229,7 +278,7 @@
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            document.getElementById('project-timer').innerHTML = 
+            document.getElementById('project-timer').innerHTML =
                 `${years}J ${days}T ${hours}Std ${minutes}Min ${seconds}Sek`;
         }
 
@@ -238,4 +287,5 @@
         updateTimer(); // Sofortiger Start
     </script>
 </body>
+
 </html>
