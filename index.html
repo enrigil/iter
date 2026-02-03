@@ -15,13 +15,11 @@
         }
 
         .section {
-            display: none;
             padding: 100px 20px;
-            min-height: 90vh;
-        }
-
-        .active {
-            display: block;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .nav-link {
@@ -64,6 +62,50 @@
         #timer-container {
             font-family: 'Courier New', Courier, monospace;
         }
+
+        /* Scroll-Animation */
+        .mouse {
+            width: 26px;
+            height: 44px;
+            border: 2px solid #3b82f6;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .mouse-wheel {
+            width: 4px;
+            height: 8px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+            margin-top: 8px;
+            animation: scroll-wheel 2s infinite;
+        }
+
+        @keyframes scroll-wheel {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(15px); opacity: 0; }
+        }
+
+        .scroll-text {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #3b82f6;
+            text-transform: uppercase;
+        }
+
+        /* Reaktor Bild Styling */
+        .reactor-image {
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
     </style>
 </head>
 
@@ -74,33 +116,49 @@
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="font-bold text-xl tracking-tighter text-blue-500">PROJEKT FUSION</div>
             <div class="hidden md:flex space-x-6">
-                <a onclick="showSection('home')" class="nav-link">Start</a>
-                <a onclick="showSection('was-ist')" class="nav-link">Was ist Iter</a>
-                <a onclick="showSection('wie')" class="nav-link">Wie funktioniert es</a>
-                <a onclick="showSection('facts')" class="nav-link">Facts</a>
-                <a onclick="showSection('quellen')" class="nav-link">Quellen / über mich</a>
+                <a onclick="scrollToSection('home')" class="nav-link">Start</a>
+                <a onclick="scrollToSection('was-ist')" class="nav-link">Was ist Iter</a>
+                <a onclick="scrollToSection('wie')" class="nav-link">Wie funktioniert es</a>
+                <a onclick="scrollToSection('facts')" class="nav-link">Facts</a>
+                <a onclick="scrollToSection('quellen')" class="nav-link">Quellen</a>
+                <a onclick="scrollToSection('ueber-mich')" class="nav-link">Über mich</a>
             </div>
         </div>
     </nav>
 
     <!-- Startseite mit Live-Timer -->
-    <section id="home" class="section active flex flex-col items-center justify-center text-center">
+    <section id="home" class="section items-center text-center">
         <h1 class="text-8xl md:text-9xl font-black mb-4">ITER</h1>
-        <p class="text-xl md:text-3xl font-light text-gray-400 tracking-[0.3em] uppercase mb-8">Die Zukunft der Energie
+        <p class="text-xl md:text-3xl font-light text-gray-400 tracking-[0.3em] uppercase mb-12">Die Zukunft der Energie
         </p>
 
+        <!-- Grafik Aufbau von Iter -->
+        <div class="relative px-4">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" 
+                 alt="Aufbau von ITER Fusionsreaktor" 
+                 class="reactor-image"
+                 onerror="this.src='https://via.placeholder.com/600x350/050505/3b82f6?text=ITER+Reactor+Core'">
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-blue-600/20 backdrop-blur-md px-4 py-1 rounded-full border border-blue-500/30">
+                <span class="text-[10px] uppercase tracking-widest text-blue-300">Konzept: Magnetischer Einschluss</span>
+            </div>
+        </div>
+
         <!-- Live Projekt Timer -->
-        <div id="timer-container" class="glass p-6 md:p-8 max-w-2xl">
+        <div id="timer-container" class="glass p-6 md:p-8 max-w-2xl mb-12">
             <p class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">Zeit seit Baubeginn (2007)</p>
             <div id="project-timer" class="text-2xl md:text-4xl font-bold text-white tracking-widest">
                 Lade Projektdauer...
             </div>
         </div>
 
-        <div class="mt-12 animate-bounce cursor-pointer" onclick="showSection('was-ist')">
-            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
-                </path>
+        <!-- Scroll Indikator -->
+        <div class="flex flex-col items-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity" onclick="scrollToSection('was-ist')">
+            <div class="mouse">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span class="scroll-text">Bitte Scrollen</span>
+            <svg class="w-5 h-5 text-blue-500 mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
         </div>
     </section>
@@ -109,14 +167,14 @@
     <section id="was-ist" class="section">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 gradient-text">
-                ITER, dass im Lateinischen "der Weg" bedeutet, wird das weltweit größte Experiment auf dem Weg zur
+                ITER, das im Lateinischen "der Weg" bedeutet, wird das weltweit größte Experiment auf dem Weg zur
                 Fusionsenergie sein.
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="glass p-8">
                     <h3 class="text-blue-400 font-bold mb-4 uppercase text-sm">Globale Allianz</h3>
                     <p class="leading-relaxed">
-                        35 Nationen arbeiten an diesem gigantischem Projekt darunter China, Europa, Japan, Indien, die
+                        35 Nationen arbeiten an diesem gigantischen Projekt, darunter China, Europa, Japan, Indien, die
                         Republik Korea, die Russische Föderation und die USA. Kanada ist seit 2004 nicht mehr dabei.
                     </p>
                 </div>
@@ -137,11 +195,11 @@
             <h2 class="text-4xl font-bold mb-12 text-center text-white">Das umweltfreundlichste Kraftwerk</h2>
             <div class="glass p-10 space-y-6 text-lg border-l-4 border-l-blue-600">
                 <p>Durch <span class="text-blue-400 font-mono italic">Deuterium und Tritium</span> erzeugt man eine Art
-                    Plasma oder einen mini Stern.</p>
-                <p>Magnete sorgen dafür dass das Plasma die wände nicht berührt dann wird es auf <span
+                    Plasma oder einen Mini-Stern.</p>
+                <p>Magnete sorgen dafür, dass das Plasma die Wände nicht berührt, dann wird es auf <span
                         class="text-blue-400 font-mono">150 Millionen Grad</span> aufgeheizt.</p>
-                <p>Ihre Energie wird als Wärme, die zum Beispiel über Kühltürme abgeleitet werden kann zur
-                    Stromerzeugung genutzt werden. Wie auch bei einem herkömlichen Atomkraftwerk.</p>
+                <p>Ihre Energie wird als Wärme, die zum Beispiel über Kühltürme abgeleitet werden kann, zur
+                    Stromerzeugung genutzt. Wie auch bei einem herkömmlichen Atomkraftwerk.</p>
             </div>
         </div>
     </section>
@@ -172,34 +230,12 @@
         </div>
     </section>
 
-    <!-- Quellen und Mein Weg -->
-    <section id="quellen" class="section bg-black">
+    <!-- Quellen Sektion -->
+    <section id="quellen" class="section bg-[#050505]">
         <div class="max-w-4xl mx-auto">
-            <div class="mb-20">
-                <h2 class="text-3xl font-bold mb-8 border-b border-white/10 pb-4">Mein Weg zum Projekt</h2>
-                <div class="glass p-8">
-                    <p class="text-lg text-grey-500 leading-relaxed italic">
-                        Hey, ich heisse Enrique, bin 14 Jahre alt und beschäftige mich aktiv mit Python im Eigenstudium.
-                        Ausserdem baue ich momentan mein eigenes kleines Smart Home auf und teste aktiv meinen neuen
-                        3D-Drucker. Nebenbei arbeite ich immer wieder an IT-Projekten wie diesem hier.
-
-                        Da ich momentan noch kein HTML programmieren kann, stellte sich dieses Projekt anfangs als
-                        schwieriger heraus als gedacht. Als wir im RZG-Unterricht den Auftrag bekamen, ein Projekt über
-                        Energie zu machen, war mir sofort klar: Ich möchte eine Webseite programmieren.
-
-                        Nach etwas Brainstorming habe ich einen knapp 300 Wörter langen Prompt geschrieben, in dem ich
-                        mein Projekt genau beschrieb. Das Code-Tool von Google (Google AI Studio) hat mir daraufhin das
-                        Grundgerüst meiner Webseite erstellt. Nachdem ich die Farben und das Layout manuell im Code
-                        angepasst habe, lud ich meine Webseite schliesslich über GitHub ins Internet.
-                    </p>
-                </div>
-            </div>
-
             <h2 class="text-3xl font-bold mb-8 border-b border-white/10 pb-4">Quellen & Ressourcen</h2>
             <div class="grid gap-4">
-                <!-- Quellen-Links mit target="_blank" -->
-                <a href="https://de.wikipedia.org/wiki/ITER#:~:text=Table_title:%20ITER%20Table_content:%20header:%20%7C%20International%20Thermonuclear,Reactor:%20Generaldirektor%20%7C%20:%20Pietro%20Barabaschi%20%7C"
-                    target="_blank" class="glass p-6 source-card">
+                <a href="https://de.wikipedia.org/wiki/ITER" target="_blank" class="glass p-6 source-card">
                     <div class="flex justify-between items-center">
                         <div>
                             <span class="text-blue-400 text-xs font-bold uppercase">Wikipedia</span>
@@ -256,18 +292,47 @@
         </div>
     </section>
 
+    <!-- Über mich Sektion -->
+    <section id="ueber-mich" class="section bg-black">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 border-b border-white/10 pb-4 text-blue-500">Mein Weg zum Projekt</h2>
+            <div class="glass p-8">
+                <p class="text-lg text-gray-400 leading-relaxed italic">
+                    Hey, ich heisse Enrique, bin 14 Jahre alt und beschäftige mich aktiv mit Python im Eigenstudium.
+                    Ausserdem baue ich momentan mein eigenes kleines Smart Home auf und teste aktiv meinen neuen
+                    3D-Drucker. Nebenbei arbeite ich immer wieder an IT-Projekten wie diesem hier.
+
+                    Da ich momentan noch kein HTML programmieren kann, stellte sich dieses Projekt anfangs als
+                    schwieriger heraus als gedacht. Als wir im RZG-Unterricht den Auftrag bekamen, ein Projekt über
+                    Energie zu machen, war mir sofort klar: Ich möchte eine Webseite programmieren.
+
+                    Nach etwas Brainstorming habe ich einen knapp 300 Wörter langen Prompt geschrieben, in dem ich
+                    mein Projekt genau beschrieb. Das Code-Tool von Google (Google AI Studio) hat mir daraufhin das
+                    Grundgerüst meiner Webseite erstellt. Nachdem ich die Farben und das Layout manuell im Code
+                    angepasst habe, lud ich meine Webseite schliesslich über GitHub ins Internet.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // Funktion zum Sektionswechsel
-        function showSection(id) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Funktion zum Scrollen zur Sektion
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const navHeight = 64; // Höhe der Navigationsleiste
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         // Live Timer Logik
         function updateTimer() {
-            // Baubeginn offiziell 2007 (Annahme 1. Januar für den Zähler)
             const startDate = new Date('January 1, 2007 00:00:00').getTime();
             const now = new Date().getTime();
             const difference = now - startDate;
@@ -282,12 +347,10 @@
                 `${years}J ${days}T ${hours}Std ${minutes}Min ${seconds}Sek`;
         }
 
-        // Timer jede Sekunde aktualisieren
         setInterval(updateTimer, 1000);
-        updateTimer(); // Sofortiger Start
+        updateTimer();
     </script>
 </body>
-
 
 </html>
 
